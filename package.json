@@ -57,5 +57,10 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --pattern 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md,html}'"
+    }
+  }
 }
