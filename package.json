@@ -2,7 +2,7 @@
   "name": "ionic-angular-todo",
   "version": "0.0.1",
   "author": "Devin Shoemaker",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "https://github.com/devinshoemaker/ionic-angular-todo",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
