@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "concurrently \"ng serve\" \"cypress run\" --kill-others --success first",
+    "e2e:watch": "concurrently \"ng serve\" \"cypress open\" --kill-others --success first",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md,html}'",
     "format:check": "prettier 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md,html}'"
   },
