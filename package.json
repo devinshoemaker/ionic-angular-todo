@@ -45,6 +45,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "concurrently": "^5.0.2",
     "cypress": "^3.8.0",
     "eslint-plugin-cypress": "^2.8.1",
     "husky": "^3.1.0",
