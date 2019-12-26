@@ -8,6 +8,6 @@ context('Home Page', () => {
   });
 
   it('should be blank', () => {
-    cy.get('ion-card-title').should('contain', 'Welcome to Ionic');
+    cy.findByText('Welcome to Ionic');
   });
 });
