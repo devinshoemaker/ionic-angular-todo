@@ -1,24 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { render, RenderResult } from '@testing-library/angular';
 import { HomePage } from './home.page';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('Home Page', () => {
+  let component: RenderResult<HomePage>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [HomePage],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  beforeEach(async () => {
+    component = await render(HomePage, {
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    });
+  });
 
-    fixture = TestBed.createComponent(HomePage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  it('should create', async () => {
+    expect(component.container).toBeTruthy();
+  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should have title', async () => {
+    expect(component.getByText('Home')).toBeTruthy();
+  });
+
+  it('should have card', async () => {
+    expect(component.getByText('Welcome to Ionic')).toBeTruthy();
   });
 });
