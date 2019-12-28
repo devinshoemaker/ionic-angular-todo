@@ -1,5 +1,7 @@
 {
   "name": "Ionic Angular Todo",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
