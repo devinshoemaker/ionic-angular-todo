@@ -1,31 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { render, RenderResult } from '@testing-library/angular';
 import { ListPage } from './list.page';
 
 describe('ListPage', () => {
-  let component: ListPage;
-  let fixture: ComponentFixture<ListPage>;
-  let listPage: HTMLElement;
+  let component: RenderResult<ListPage>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ListPage],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(ListPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  beforeEach(async () => {
+    component = await render(ListPage, {
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    });
+  });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component.container).toBeTruthy();
   });
 
   it('should have a list of 10 elements', () => {
-    listPage = fixture.nativeElement;
-    const items = listPage.querySelectorAll('ion-item');
+    const items = component.container.querySelectorAll('ion-item');
     expect(items.length).toEqual(10);
   });
 });
