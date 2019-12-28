@@ -33,3 +33,7 @@ npm-debug.log*
 # Cypress
 cypress/screenshots
 cypress/videos
+
+# Firebase
+.firebase/
+.firebaserc
