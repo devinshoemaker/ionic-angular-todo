@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# script/deploy: Deploy application to hosting after
+#                successfully running test suite.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${SCRIPT_DIR}/test
+
+echo "==> Building project..."
+
+npm run build
+
+if [[ ! -f ".firebaserc" ]]; then
+    firebase use --add
+fi
+
+echo "==> Deploying to Firebase..."
+
+firebase deploy 
+
+echo "==> Deployment complete."

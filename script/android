@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# script/android: Launch the application on Android and any extra required processes
+#                 locally.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${SCRIPT_DIR}/bootstrap
+
+echo "==> Building project..."
+npm run build
+
+if [[ ! -d "android/capacitor-cordova-android-plugins" ]]; then
+    echo "==> Updating Android dependencies..."
+    npx cap update android
+fi
+
+echo "==> Copying Android project files..."
+npx cap copy android
+
+echo "==> Opening application in Android Studio..."
+npx cap open android
