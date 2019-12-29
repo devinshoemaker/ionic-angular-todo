@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# script/setup: Set up application for the first time after cloning, or set it
+#               back to the initial first unused state.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+echo "==> Setting application back to initial state..."
+
+# Node
+rm -rf \
+    node_modules/ \
+
+# Angular
+rm -rf \
+    www/ \
+
+# Karma
+rm -rf \
+    coverage/ \
+
+# Cypress
+rm -rf \
+    cypress/screenshots/ \
+    cypress/videos/ \
+
+# iOS
+rm -rf \
+    ios/App/Pods \
+    ios/App/public \
+    ios/App/Podfile.lock \
+    ios/capacitor-cordova-ios-plugins/ \
+
+# Android
+rm -rf \
+    android/app/build \
+    android/capacitor-cordova-android-plugins \
+
+# Firebase
+rm -rf \
+    .firebase/ \
+    
+echo "==> Setup complete."

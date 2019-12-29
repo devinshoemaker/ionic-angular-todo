@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# script/update: Update application to run for its current checkout.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${SCRIPT_DIR}/bootstrap
+
+echo "==> Updating NPM dependencies..."
+npm update
+ng update
+
+echo "echo ==> Dependency updates complete."

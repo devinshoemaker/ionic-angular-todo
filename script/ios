@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# script/ios: Launch the application on iOS and any extra required processes
+#             locally.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Store a local variable of the scripts current directory
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${SCRIPT_DIR}/bootstrap
+
+echo "==> Building project..."
+npm run build
+
+if [[ ! -d "ios/capacitor-cordova-ios-plugins" ]]; then
+    echo "==> Updating iOS dependencies..."
+    npx cap update ios
+fi
+
+echo "==> Copying iOS project files..."
+npx cap copy ios
+
+echo "==> Opening application in Xcode..."
+npx cap open ios
