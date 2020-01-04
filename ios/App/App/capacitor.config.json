@@ -1,0 +1,8 @@
+{
+  "appId": "com.devinshoemaker.ionicangulartodo",
+  "appName": "Ionic Angular Todo",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
