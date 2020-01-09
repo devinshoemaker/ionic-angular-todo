@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AuthPageRoutingModule } from './auth-routing.module';
 import { AuthPage } from './auth.page';
-import { FirebaseUIComponent } from './firebase-ui/firebase-ui.component';
+import { FirebaseUIComponent } from './components/firebase-ui/firebase-ui.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, AuthPageRoutingModule],
